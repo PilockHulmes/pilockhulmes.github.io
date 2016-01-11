@@ -120,12 +120,26 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#%RAML 0.8&#10;#big.raml&#10;&#10;external: !include properties.raml</span><br></pre></td></tr></table></figure>
 <p>这样子得到的结果和以下内联声明相同:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#%RAML 0.8&#10;external:&#10;  propertyA: valueA&#10;  propertyB: valueB</span><br></pre></td></tr></table></figure>
-<p>如果在被引入的文件中使用了相对路径, 该相对路径会基于原(发起引用的)文件的位置来解读. 如果原文件是作为HTTP资源获取到的, 那么被其引入的文件也应高通过HTTP来获取.</p>
+<p>如果在被引入的文件中使用了相对路径, 该相对路径会基于原(发起引用的)文件的位置来解读. 如果原文件是作为HTTP资源获取到的, 那么被其引入的文件也应该通过HTTP来获取.</p>
+<p>在以下例子中, 由于原(发起引用的)文件位于 <em><a href="http://example-domain.org/api/example.raml" target="_blank" rel="external">http://example-domain.org/api/example.raml</a></em> , 因此 <em>properties.raml</em> 的获取路径应该为 <em><a href="http://example-domain.org/api/properties.raml" target="_blank" rel="external">http://example-domain.org/api/properties.raml</a></em>.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#%RAML 0.8&#10;#http://example-domain.org/api/example.raml&#10;&#10;external: !include properties.raml</span><br></pre></td></tr></table></figure>
+<p>如果被引入的文件属于以下媒体类型:</p>
+<ul>
+<li>application/raml+yaml</li>
+<li>text/yaml</li>
+<li>text/x-yaml</li>
+<li>application/yaml</li>
+<li>application/x-yaml</li>
+</ul>
+<p>或者以 <em>.raml</em>, <em>.yml</em>, <em>.yaml</em> 之一作为扩展名时, RAML编译器必须将这些文件中的内容视为RAML并将其加到RAML文档的节点中.</p>
+<p>被引入文件的路径, 也就是 !include 右边的内容, 必须是静态的. 也就是说其中不能含有任何resource types(资源类型)或traits(特质)参数. 会考虑在未来版本中加入该功能.</p>
+<h2 id="u5177_u540D_u53C2_u6570"><a href="#u5177_u540D_u53C2_u6570" class="headerlink" title="具名参数"></a>具名参数</h2><p>在本RAML规范中为以下属性定义了具名参数集合: URI parameters(统一资源标识符参数), query string parameters(get请求中的请求参数), form parameters(请求体中的表单参数), request bodies(不同媒体类型中的请求体), 以及request and response header(请求头与响应头). 以上属性拥有本节中定义的所有具名参数.</p>
+<p>部分具名参数为可选的, 另一部分为必须的. 具体情况可以看本节对每个具名参数的描述.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/08/raml-0-8中文版/" data-id="cij9tlueh00016g7jbwid0uqt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/08/raml-0-8中文版/" data-id="cij9tmlyi00017a7j9cfzi2fm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/05/hello-world/" data-id="cij9tludj00006g7j21jeqncf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/05/hello-world/" data-id="cij9tmlxq00007a7jlt1o6pg3" class="article-share-link">Share</a>
       
       
     </footer>
