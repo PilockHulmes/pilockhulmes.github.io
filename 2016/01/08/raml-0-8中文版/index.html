@@ -15,7 +15,7 @@
 <meta property="og:description" content="RAML&amp;trade;版本0.8: REST风格API的建模语言点击查看新版RAML(1.0)
 摘要RAML&amp;trade;是一门基于YAML, 用于描述REST风格API的语言. 在YAML规范的基础上, 本规范提供了用于描述REST风格API, 创建客户端与服务端代码生成器, 以及通过RAML API定义来生成API用户手册所需的一切信息;
 简介本规范介绍了RAML. RAML定义了一种可同时供">
-<meta property="og:updated_time" content="2016-01-11T11:42:24.000Z">
+<meta property="og:updated_time" content="2016-01-14T00:12:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="raml-0.8中文版">
 <meta name="twitter:description" content="RAML&amp;trade;版本0.8: REST风格API的建模语言点击查看新版RAML(1.0)
@@ -140,11 +140,51 @@
 <p>被引入文件的路径, 也就是 !include 右边的内容, 必须是静态的. 也就是说其中不能含有任何resource types(资源类型)或traits(特质)参数. 会考虑在未来版本中加入该功能.</p>
 <h2 id="u5177_u540D_u53C2_u6570"><a href="#u5177_u540D_u53C2_u6570" class="headerlink" title="具名参数"></a>具名参数</h2><p>在本RAML规范中为以下属性定义了具名参数集合: URI parameters(统一资源标识符参数), query string parameters(get请求中的请求参数), form parameters(请求体中的表单参数), request bodies(不同媒体类型中的请求体), 以及request and response header(请求头与响应头). 以上属性拥有本节中定义的所有具名参数.</p>
 <p>部分具名参数为可选的, 另一部分为必须的. 具体情况可以看本节对每个具名参数的描述.</p>
+<p>除有特别说明, 所有具名参数的值都应是纯文本. 所有合法的YAML字符也可以被加入到具名参数的值中.</p>
+<h3 id="displayName_28_u5C55_u793A_u540D_u79F0_29"><a href="#displayName_28_u5C55_u793A_u540D_u79F0_29" class="headerlink" title="displayName(展示名称)"></a>displayName(展示名称)</h3><p>(可选)<br><em>displayName(展示名称)</em> 决定了参数展示的名称. 该值仅在展示或是生成文档时会用到. 如果没有定义, 那么默认会使用属性的键(也就是属性本身的名字)作为 <em>displayName(展示名称)</em>.</p>
+<h3 id="description_28_u63CF_u8FF0_29"><a href="#description_28_u63CF_u8FF0_29" class="headerlink" title="description(描述)"></a>description(描述)</h3><p>(可选)<br><em>description(描述)</em> 属性用于说明参数预期用途或是意义. 其值可以使用 Markdown [Markdown] 格式.</p>
+<h3 id="type_28_u7C7B_u578B_29"><a href="#type_28_u7C7B_u578B_29" class="headerlink" title="type(类型)"></a>type(类型)</h3><p>(可选)<br><em>type(类型)</em> 属性决定了参数解析值的基本类型. 若参数的解析值的类型与定义不符合, API客户端必须返回/抛出一个异常. 如果没有定义, 那么默认会以string作为 <em>type(类型)</em>. 合法的类型有:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">string</td>
+<td style="text-align:left">值必须为字符串.</td>
+</tr>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">值必须是数, 由YAML定义的浮点数.</td>
+</tr>
+<tr>
+<td style="text-align:left">integer</td>
+<td style="text-align:left">值必须是整数. 不允许是整数. integer类型是number类型的一个子集.</td>
+</tr>
+<tr>
+<td style="text-align:left">date</td>
+<td style="text-align:left">值必须是一串 RFC2616 [RFC2616] 3.3节中定义的日期格式的字符串. 详见 <a href="/#date-representations">日期表示</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">值必须是字符串”true”或者”false”(没有双引号)之一.</td>
+</tr>
+<tr>
+<td style="text-align:left">file</td>
+<td style="text-align:left">(只适用于表单)<br><br>值必须为一个文件. 客户端生成器应该使用该类型来正确处理文件上传.</td>
+</tr>
+</tbody>
+</table>
+<p>#####日期表示</p>
+<p>正如[RFC2616]中所定义的, 所有日期/时间戳必须以格林尼治标准时(GMT)表示, 对于HTTP而言GMT完全等同于UTC(协调世界时). 通过把”GMT”缩写加入到日期的时区位置来指定时间类型, 例如: <code>Sun, 06 Nov 1994 08:49:37 GMT</code>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/08/raml-0-8中文版/" data-id="cij9tmlyi00017a7j9cfzi2fm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/08/raml-0-8中文版/" data-id="cijc39s7u0001rh7j8k432k5w" class="article-share-link">Share</a>
       
       
     </footer>
