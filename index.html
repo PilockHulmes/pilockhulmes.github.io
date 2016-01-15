@@ -175,11 +175,19 @@
 </table>
 <p>#####日期表示</p>
 <p>正如[RFC2616]中所定义的, 所有日期/时间戳必须以格林尼治标准时(GMT)表示, 对于HTTP而言GMT完全等同于UTC(协调世界时). 通过把”GMT”缩写加入到日期的时区位置来指定时间类型, 例如: <code>Sun, 06 Nov 1994 08:49:37 GMT</code>.</p>
+<h3 id="enum_28_u679A_u4E3E_29"><a href="#enum_28_u679A_u4E3E_29" class="headerlink" title="enum(枚举)"></a>enum(枚举)</h3><p>(可选, 只适用于string类型的参数)<br><em>enum(枚举)</em> 属性会给出变量所有合法值的枚举. 必须通过数组来枚举. 如果定义了 <em>enum(枚举)</em> 属性, API的客户端与服务端都必须验证参数的值是否符合枚举数组中某一项的值. 若数组中没有值匹配得上, 客户端与服务器端都必须将其视为一个错误.</p>
+<h3 id="pattern_28_u683C_u5F0F_29"><a href="#pattern_28_u683C_u5F0F_29" class="headerlink" title="pattern(格式)"></a>pattern(格式)</h3><p>(可选, 只适用于string类型的参数)<br><em>pattern(格式)</em> 属性是一个正则表达式, string类型的参数必须与其匹配. 正则表达式的格式必须遵循 ECMA 262/Perl 5. 正则表达式可以使用双引号包裹.</p>
+<h3 id="minLength_28_u6700_u5C0F_u957F_u5EA6_29"><a href="#minLength_28_u6700_u5C0F_u957F_u5EA6_29" class="headerlink" title="minLength(最小长度)"></a>minLength(最小长度)</h3><p>(可选, 只适用于string类型的参数)<br><em>minLength(最小长度)</em> 属性规定了参数的值允许的最小字符个数.</p>
+<h3 id="maxLength_28_u6700_u5927_u957F_u5EA6_29"><a href="#maxLength_28_u6700_u5927_u957F_u5EA6_29" class="headerlink" title="maxLength(最大长度)"></a>maxLength(最大长度)</h3><p>(可选, 只适用于string类型的参数)<br><em>maxLength(最大长度)</em> 属性规定了参数的值允许的最大字符个数.</p>
+<h3 id="minimum_28_u6700_u5C0F_u503C_29"><a href="#minimum_28_u6700_u5C0F_u503C_29" class="headerlink" title="minimum(最小值)"></a>minimum(最小值)</h3><p>(可选, 只适用于number或是integer类型的参数)<br><em>minimum(最小值)</em> 属性规定了参数的最小值.</p>
+<h3 id="maximum_28_u6700_u5927_u503C_29"><a href="#maximum_28_u6700_u5927_u503C_29" class="headerlink" title="maximum(最大值)"></a>maximum(最大值)</h3><p>(可选, 只适用于number或是integer类型的参数)<br><em>maximum(最大值)</em> 属性规定了参数的最大值</p>
+<h3 id="example_28_u793A_u4F8B_29"><a href="#example_28_u793A_u4F8B_29" class="headerlink" title="example(示例)"></a>example(示例)</h3><p>(可选)<br><em>example(示例)</em> 属性是参数值的一个示例. 文档生成器可以使用该属性来为参数来生成样本值.</p>
+<h3 id="repeat_28_u53EF_u91CD_u590D_29"><a href="#repeat_28_u53EF_u91CD_u590D_29" class="headerlink" title="repeat(可重复)"></a>repeat(可重复)</h3><p>(可选)<br><em>repeat(可重复)</em> 属性规定了参数是否能重复使用. 如果能, <em>repeat(可重复)</em> 的值必须设为true. 否则值为false.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/08/raml-0-8中文版/" data-id="cijc39s7u0001rh7j8k432k5w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/08/raml-0-8中文版/" data-id="cijfgacbq0001xg7ju4p43j8b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/05/hello-world/" data-id="cijc39s6s0000rh7jxig4zexa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/05/hello-world/" data-id="cijfgacbl0000xg7j9zbqgcct" class="article-share-link">Share</a>
       
       
     </footer>
